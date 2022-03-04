@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
 import Next48hForecast from '../components/pages/Next48hForecast';
 import TodayForecast from '../components/pages/TodayForecast';
@@ -6,12 +7,14 @@ import Header from '../components/UI/Header';
 import Navbar from '../components/UI/Navbar';
 
 const AppRouter = () => {
+  const isDark = useSelector((state) => state.theme);
+
   return (
-    <div className=''>
+    <div className={`mx-md-5 ${isDark && 'bg-secondary bg-opacity-25'}`}>
       <Router>
         <Header />
         <Navbar />
-        <div className='m-5 my-3'>
+        <div className='m-4'>
           <Routes>
             <Route path='today' element={<TodayForecast />} />
             <Route path='next48h' element={<Next48hForecast />} />

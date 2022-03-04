@@ -1,8 +1,24 @@
 import { NavLink } from 'react-router-dom';
+import useForm from '../../hooks/useForm';
 
 const Navbar = () => {
+  // Estilo pila del componente
   const intViewportWidth = parseInt(window.innerWidth);
   const desktopScreen = intViewportWidth > 778;
+
+  const { formValues, handleInputChange, reset } = useForm({
+    location: '',
+  });
+
+  const { location } = formValues;
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    console.log(formValues);
+    reset();
+  };
+
   return (
     <nav
       className={`navbar navbar-expand-md navbar-light bg-light ${
@@ -26,8 +42,15 @@ const Navbar = () => {
           </div>
 
           <div className='navbar-nav col-md-6'>
-            <form className='d-flex col'>
-              <input className='form-control me-2' type='search' placeholder='Location' />
+            <form className='d-flex col' onSubmit={handleSubmit}>
+              <input
+                className='form-control me-2'
+                name='location'
+                onChange={handleInputChange}
+                value={location}
+                type='search'
+                placeholder='Location'
+              />
               <button className='btn btn-outline-dark' type='submit'>
                 Search
               </button>
