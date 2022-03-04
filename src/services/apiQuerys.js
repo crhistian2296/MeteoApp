@@ -1,12 +1,23 @@
 import axios from 'axios';
 
-export const getCoordinates = async (location) => {
+/**
+ *
+ * @param {String} locationName
+ * @returns {Array}
+ */
+export const getCoordinates = async (locationName) => {
   const res = await axios.get(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${location}&limit=5&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
+    `http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=5&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
   );
   return res;
 };
 
+/**
+ *
+ * @param {String} lat
+ * @param {String} lon
+ * @returns {Object}
+ */
 export const getCurrentWeather = async (lat, lon) => {
   try {
     const res = axios.get(
@@ -36,6 +47,12 @@ export const getNext48Hours = async (lat, lon) => {
   }
 };
 
+/**
+ *
+ * @param {String} lat
+ * @param {String} lon
+ * @returns {Object}
+ */
 export const getNextWeek = async (lat, lon) => {
   try {
     const res = axios.get(
@@ -50,6 +67,11 @@ export const getNextWeek = async (lat, lon) => {
   }
 };
 
-export const getIcon = async (iconId) => {
+/**
+ *
+ * @param {String} iconId
+ * @returns <img/>
+ */
+export const getIcon = (iconId) => {
   return <img src={`http://openweathermap.org/img/wn/${iconId}.png`} alt='weather.png' />;
 };
