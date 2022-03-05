@@ -1,5 +1,7 @@
-import { useSelector } from 'react-redux';
+import { useContext } from 'react';
 import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { CitySelection } from '../components/CitySelection';
+import { DataContext } from '../components/data/DataContext';
 import Next48hForecast from '../components/pages/Next48hForecast';
 import TodayForecast from '../components/pages/TodayForecast';
 import WeekForecast from '../components/pages/WeekForecast';
@@ -7,13 +9,16 @@ import Header from '../components/UI/Header';
 import Navbar from '../components/UI/Navbar';
 
 const AppRouter = () => {
-  const isDark = useSelector((state) => state.theme);
+  const { themeToggle, searchCityField } = useContext(DataContext);
+  const { theme } = themeToggle;
+  const { city } = searchCityField;
 
   return (
-    <div className={`mx-md-5 ${isDark && 'bg-secondary bg-opacity-25'}`}>
+    <div className={`mx-md-5 ${theme && 'bg-secondary bg-opacity-25'}`}>
       <Router>
         <Header />
         <Navbar />
+        {Object.values(city).length > 0 && <CitySelection />}
         <div className='m-4'>
           <Routes>
             <Route path='today' element={<TodayForecast />} />

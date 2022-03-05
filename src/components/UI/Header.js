@@ -1,12 +1,13 @@
 import { faCircleHalfStroke } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useDispatch } from 'react-redux';
-import { toggleLight } from '../../theme/actions';
+import { useContext } from 'react';
+import { DataContext } from '../data/DataContext';
 
 const Header = () => {
-  const dispatch = useDispatch();
+  const { themeToggle } = useContext(DataContext);
+  const { toggle } = themeToggle;
 
-  const handleToggle = () => dispatch(toggleLight());
+  const handleToggle = () => toggle();
   return (
     <div className='d-flex px-5 justify-content-between align-items-center'>
       <h1 className='display-1'>

@@ -9,26 +9,6 @@ GET https://api.openweathermap.org/data/2.5/onecall
   ?lat=51.5156177
   &lon=-0.0919983
   &units=metric
-  &exclude=minutely,hourly,daily
+  &exclude=minutely
   &appid=dc95562776b6b4eaf655bac72e985edb
-#London current
-###
-
-
-GET https://api.openweathermap.org/data/2.5/onecall
-  ?lat=51.5156177
-  &lon=-0.0919983
-  &units=metric
-  &exclude=minutely,current,daily
-  &appid=dc95562776b6b4eaf655bac72e985edb
-# London next 48h
-
-###
-
-GET https://api.openweathermap.org/data/2.5/onecall
-  ?lat=51.5156177
-  &lon=-0.0919983
-  &units=metric
-  &exclude=minutely,current,hourly
-  &appid=dc95562776b6b4eaf655bac72e985edb
-# London next week
+#London weather forecast

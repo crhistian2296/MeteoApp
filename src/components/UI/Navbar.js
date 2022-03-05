@@ -1,10 +1,15 @@
+import { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
 import useForm from '../../hooks/useForm';
+import { DataContext } from '../data/DataContext';
+
+// Estilo pila del componente
+const intViewportWidth = parseInt(window.innerWidth);
+const desktopScreen = intViewportWidth > 778;
 
 const Navbar = () => {
-  // Estilo pila del componente
-  const intViewportWidth = parseInt(window.innerWidth);
-  const desktopScreen = intViewportWidth > 778;
+  const { searchCityField } = useContext(DataContext);
+  const { setCity } = searchCityField;
 
   const { formValues, handleInputChange, reset } = useForm({
     location: '',
@@ -15,8 +20,10 @@ const Navbar = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(formValues);
-    reset();
+    if (location) {
+      setCity(location);
+      reset();
+    }
   };
 
   return (
@@ -59,7 +66,6 @@ const Navbar = () => {
         </div>
       </div>
     </nav>
-    // <h1>Navbar</h1>
   );
 };
 
