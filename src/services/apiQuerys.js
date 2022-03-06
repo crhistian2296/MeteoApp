@@ -35,6 +35,13 @@ export const getWeatherForecast = async (lat, lon) => {
  * @param {String} iconId
  * @returns image element
  */
-export const getIcon = (iconId) => {
-  return <img src={`http://openweathermap.org/img/wn/${iconId}.png`} alt='weather.png' />;
+export const getIcon = (iconId, weatherMain, size = '180px') => {
+  return (
+    <img
+      src={`http://openweathermap.org/img/wn/${iconId}@4x.png`}
+      height={size}
+      width={size}
+      alt={`${weatherMain}`}
+    />
+  );
 };

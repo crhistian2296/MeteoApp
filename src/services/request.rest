@@ -1,14 +1,14 @@
 GET  http://api.openweathermap.org/geo/1.0/direct
-  ?q=Madrid
+  ?q=rio
   &limit=5
   &appid=dc95562776b6b4eaf655bac72e985edb
 #Location query
 ###
 
 GET https://api.openweathermap.org/data/2.5/onecall
-  ?lat=51.5156177
-  &lon=-0.0919983
+  ?lat=-22.9110137
+  &lon=-43.2093727
   &units=metric
   &exclude=minutely
   &appid=dc95562776b6b4eaf655bac72e985edb
-#London weather forecast
+#rio de janeiro weather forecast
