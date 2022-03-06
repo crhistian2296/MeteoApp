@@ -7,19 +7,21 @@ import { DataContext } from './data/DataContext';
 
 export const CitySelection = () => {
   const dispatch = useDispatch();
-  const { searchCityField, linksToggle } = useContext(DataContext);
+  const { searchCityField } = useContext(DataContext);
   const { city } = searchCityField;
-  const { setLinksState } = linksToggle;
 
   const { cities = [] } = useSelector((state) => state.location);
+
+  // Persistencia del estado
+  const reduxState = useSelector((state) => state);
+
   useEffect(() => {
     dispatch(getCoordinates(city));
   }, [city, dispatch]);
 
   const handleButton = (lat, lon) => {
-    setLinksState((state) => '');
     dispatch(weatherForecast(lat, lon));
-    // console.log(lat, lon);
+    localStorage.setItem('reduxState', JSON.stringify(reduxState));
   };
 
   return (

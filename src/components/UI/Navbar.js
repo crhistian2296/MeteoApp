@@ -8,9 +8,8 @@ const intViewportWidth = parseInt(window.innerWidth);
 const desktopScreen = intViewportWidth > 778;
 
 const Navbar = () => {
-  const { searchCityField, linksToggle } = useContext(DataContext);
+  const { searchCityField } = useContext(DataContext);
   const { setCity } = searchCityField;
-  const { linksState } = linksToggle;
 
   const { formValues, handleInputChange, reset } = useForm({
     location: '',
@@ -37,13 +36,13 @@ const Navbar = () => {
         <div className='navbar-collapse justify-content-between '>
           <div className='nav navbar-nav'>
             <ul className='nav-fill nav pills'>
-              <NavLink className={`nav-item nav-link ${linksState} fs-2 mx-md-3`} to='/today'>
+              <NavLink className='nav-item nav-link fs-2 mx-md-3' to='/today'>
                 Now
               </NavLink>
-              <NavLink className={`nav-item nav-link ${linksState} fs-2 mx-md-3`} to='/next48h'>
+              <NavLink className='nav-item nav-link fs-2 mx-md-3' to='/next48h'>
                 48H
               </NavLink>
-              <NavLink className={`nav-item nav-link ${linksState} fs-2 mx-md-3`} to='/week'>
+              <NavLink className='nav-item nav-link fs-2 mx-md-3' to='/week'>
                 Week
               </NavLink>
             </ul>

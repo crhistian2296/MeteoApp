@@ -6,7 +6,6 @@ export const DataContext = createContext();
 const DataProvider = ({ children }) => {
   const [city, setCity] = useState('');
   const [theme, toggle] = useToggle();
-  const [linksState, setLinksState] = useState('disabled');
 
   const initialValue = {
     searchCityField: {
@@ -16,10 +15,6 @@ const DataProvider = ({ children }) => {
     themeToggle: {
       theme,
       toggle,
-    },
-    linksToggle: {
-      linksState,
-      setLinksState,
     },
   };
   return <DataContext.Provider value={initialValue}>{children}</DataContext.Provider>;

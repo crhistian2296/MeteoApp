@@ -13,4 +13,10 @@ const composeEnhancers =
       })
     : compose;
 
-export const store = createStore(reducers, composeEnhancers(applyMiddleware(thunk)));
+const preoladedState = JSON.parse(localStorage.getItem('reduxState'));
+
+export const store = createStore(
+  reducers,
+  preoladedState,
+  composeEnhancers(applyMiddleware(thunk))
+);
