@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 import { send, weatherForecast } from '../actions/actions';
 import { dataSaveToLocalStorage } from '../helpers/dataSaveToLocalStorage';
 import { store } from '../store/store';
@@ -10,16 +11,18 @@ import { DataContext } from './data/DataContext';
  * @returns JSX Element
  */
 export const CitySelection = () => {
-    const { searchToggle } = useContext(DataContext);
-    const {  toggleSearch } = searchToggle;
+  const { searchToggle } = useContext(DataContext);
+  const { toggleSearch } = searchToggle;
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { cities = [] } = useSelector((state) => state.location);
 
   const handleButton = (lat, lon, cityName) => {
     dispatch(weatherForecast(lat, lon));
     dispatch(send(cityName, 'selectedCity'));
-    toggleSearch()
+    toggleSearch();
+    navigate('today')
   };
 
   // Permite el actualizado de la informacion persistente en localStorage
