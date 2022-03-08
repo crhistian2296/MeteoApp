@@ -1,5 +1,7 @@
+import { useContext } from 'react';
 import { capitalizeText } from '../helpers/capitalizeText';
 import { getIcon } from '../services/apiQuerys';
+import { DataContext } from './data/DataContext';
 
 /**
  * Recibe un objeto con la informacion concerniente a cada dia necesaria para representarla en una tarjeta
@@ -7,13 +9,20 @@ import { getIcon } from '../services/apiQuerys';
  * @returns JSX Element
  */
 export const DayWeatherCard = ({ dayValues }) => {
+  const { themeToggle } = useContext(DataContext);
+  const { theme } = themeToggle;
+
   const { temp, feels_like, weather } = dayValues;
   const { day: tempDay, night: tempNight } = temp;
   const { day: feelsLikeDay, night: feelsLikeNight } = feels_like;
 
   return (
     <div className='p-2'>
-      <div className='card border border-3 border-secondary rounded d-flex flex-row justify-content-center align-items-center'>
+      <div
+        className={`card border ${
+          theme && `bg-dark bg-opacity-25 text-light`
+        } border-3 border-secondary rounded d-flex flex-row justify-content-center align-items-center`}
+      >
         <div>{getIcon(weather.at(0).icon, weather.at(0).main, '120px')}</div>
         <div className='d-flex flex-column'>
           <p className='m-0'>{capitalizeText(weather.at(0).description)}</p>

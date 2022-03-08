@@ -9,13 +9,13 @@ import { DataContext } from '../data/DataContext';
  */
 const Header = () => {
   const { themeToggle } = useContext(DataContext);
-  const { toggleTheme } = themeToggle;
+  const { theme, toggleTheme } = themeToggle;
 
   const handleToggle = () => toggleTheme();
   return (
     <header className='d-flex px-5 justify-content-between align-items-center'>
       <h1 className='display-1'>
-        Meteo<span className='text-muted'>App</span>
+        Meteo<span className={`${theme ? 'text-white' : 'text-muted'}`}>App</span>
       </h1>
       <div className='form-check form-switch'>
         <input

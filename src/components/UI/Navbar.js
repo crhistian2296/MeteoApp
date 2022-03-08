@@ -14,6 +14,9 @@ const desktopScreen = intViewportWidth > 768;
  * @returns JSX Element
  */
 const Navbar = () => {
+  const { themeToggle } = useContext(DataContext);
+  const { theme } = themeToggle;
+
   const { searchToggle } = useContext(DataContext);
   const { sendedSearch, toggleSearch } = searchToggle;
   const dispatch = useDispatch();
@@ -39,9 +42,9 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`navbar navbar-expand-md navbar-light my-3 bg-light rounded-pill-sm ${
-        desktopScreen && 'rounded-pill'
-      } rounded-md mx-md-5 px-md-3`}
+      className={`navbar navbar-expand-md ${
+        theme ? `navbar-dark bg-dark bg-opacity-25` : `navbar-light bg-light`
+      } my-3 rounded-pill-sm ${desktopScreen && 'rounded-pill'} rounded-md mx-md-5 px-md-3`}
     >
       <div className='container-fluid'>
         <div className='navbar-collapse justify-content-between '>
