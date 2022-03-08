@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { send, weatherForecast } from '../actions/actions';
 import { dataSaveToLocalStorage } from '../helpers/dataSaveToLocalStorage';
 import { store } from '../store/store';
+import { DataContext } from './data/DataContext';
 
 /**
  * Lista que muestra las coincidencias en la busqueda con la informacion proveida por openWeatherAPI
  * @returns JSX Element
  */
 export const CitySelection = () => {
+    const { searchToggle } = useContext(DataContext);
+    const {  toggleSearch } = searchToggle;
   const dispatch = useDispatch();
 
   const { cities = [] } = useSelector((state) => state.location);
@@ -16,6 +19,7 @@ export const CitySelection = () => {
   const handleButton = (lat, lon, cityName) => {
     dispatch(weatherForecast(lat, lon));
     dispatch(send(cityName, 'selectedCity'));
+    toggleSearch()
   };
 
   // Permite el actualizado de la informacion persistente en localStorage

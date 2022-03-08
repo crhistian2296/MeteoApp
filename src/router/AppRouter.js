@@ -19,7 +19,7 @@ const AppRouter = () => {
   const { sendedSearch } = searchToggle;
 
   return (
-    <div className={`mx-md-5 ${theme && 'bg-secondary bg-opacity-25'}`}>
+    <div className={`mx-md-5 ${theme && 'bg-secondary bg-opacity-75'}`}>
       <Router>
         <Header />
         <Navbar />
