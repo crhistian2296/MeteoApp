@@ -7,7 +7,7 @@ import axios from 'axios';
  */
 export const getArrOfCoordinates = async (locationName) => {
   const res = await axios.get(
-    `http://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=5&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
+    `https://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=5&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
   );
   return res;
 };
@@ -40,7 +40,7 @@ export const getWeatherForecast = async (lat, lon) => {
 export const getIcon = (iconId, weatherMain, size = '180px') => {
   return (
     <img
-      src={`http://openweathermap.org/img/wn/${iconId}@4x.png`}
+      src={`https://openweathermap.org/img/wn/${iconId}@4x.png`}
       height={size}
       width={size}
       alt={`${weatherMain}`}
