@@ -1,6 +1,11 @@
 import { capitalizeText } from '../helpers/capitalizeText';
 import { getIcon } from '../services/apiQuerys';
 
+/**
+ * Recibe un objeto con la informacion concerniente a cada dia necesaria para representarla en una tarjeta
+ * @param {Object} dayValues
+ * @returns JSX Element
+ */
 export const DayWeatherCard = ({ dayValues }) => {
   const { temp, feels_like, weather } = dayValues;
   const { day: tempDay, night: tempNight } = temp;

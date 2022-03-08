@@ -6,10 +6,14 @@ import axios from 'axios';
  * @returns {Array} Array
  */
 export const getArrOfCoordinates = async (locationName) => {
-  const res = await axios.get(
-    `https://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=5&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
-  );
-  return res;
+  try {
+    const res = await axios.get(
+      `https://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=5&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
+    );
+    return res;
+  } catch (err) {
+    console.log(err)
+  }
 };
 
 /**

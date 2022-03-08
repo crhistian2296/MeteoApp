@@ -31,7 +31,6 @@ const Navbar = () => {
 
     if (location) {
       dispatch(getCoordinates(location));
-      console.log('Dispatch de ciudad => coordenadas');
       toggleSearch();
       reset();
     }
