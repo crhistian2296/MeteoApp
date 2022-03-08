@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-dom';
+import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { CitySelection } from '../components/CitySelection';
 import { DataContext } from '../components/data/DataContext';
 import BlanckPage from '../components/pages/BlanckPage';
@@ -20,7 +20,7 @@ const AppRouter = () => {
 
   return (
     <div className={`mx-md-5 ${theme && 'bg-secondary bg-opacity-75'}`}>
-      <Router>
+      <HashRouter>
         <Header />
         <Navbar />
         {sendedSearch && <CitySelection />}
@@ -33,7 +33,7 @@ const AppRouter = () => {
             <Route path='*' element={<Navigate to='/' />} />
           </Routes>
         </div>
-      </Router>
+      </HashRouter>
     </div>
   );
 };
