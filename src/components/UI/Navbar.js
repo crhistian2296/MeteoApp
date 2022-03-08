@@ -15,7 +15,7 @@ const desktopScreen = intViewportWidth > 768;
  */
 const Navbar = () => {
   const { searchToggle } = useContext(DataContext);
-  const { toggleSearch } = searchToggle;
+  const { sendedSearch, toggleSearch } = searchToggle;
   const dispatch = useDispatch();
 
   const weatherForecast = useSelector((state) => state.location.weatherForecast);
@@ -31,7 +31,8 @@ const Navbar = () => {
 
     if (location) {
       dispatch(getCoordinates(location));
-      toggleSearch();
+      if (sendedSearch === false) toggleSearch();
+
       reset();
     }
   };
