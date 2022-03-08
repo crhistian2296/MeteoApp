@@ -1,5 +1,9 @@
 import { useState } from 'react';
-
+/**
+ * Permite el manejo de formulaios
+ * @param {Object} initialState
+ * @returns Object
+ */
 const useForm = (initialState = {}) => {
   const [formValues, setFormValues] = useState(initialState);
 

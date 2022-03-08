@@ -3,11 +3,15 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useContext } from 'react';
 import { DataContext } from '../data/DataContext';
 
+/**
+ * Header de la aplicacion que contiene el logo y el control del tema
+ * @returns JSX Element
+ */
 const Header = () => {
   const { themeToggle } = useContext(DataContext);
-  const { toggle } = themeToggle;
+  const { toggleTheme } = themeToggle;
 
-  const handleToggle = () => toggle();
+  const handleToggle = () => toggleTheme();
   return (
     <header className='d-flex px-5 justify-content-between align-items-center'>
       <h1 className='display-1'>

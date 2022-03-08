@@ -1,3 +1,8 @@
+/**
+ * Ficha contenedor de la informacion meteorologica
+ * @param {String} localtime
+ * @returns JSX Element
+ */
 export const WeatherSheet = ({ children, localTime }) => {
   return (
     <>

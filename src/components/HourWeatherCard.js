@@ -3,7 +3,7 @@ import { capitalizeText } from '../helpers/capitalizeText';
 import { getIcon } from '../services/apiQuerys';
 
 export const HourWeatherCard = ({ hourvalues, timezone_offset }) => {
-  const { dt, temp, feels_like, weather } = hourvalues;
+  const { dt, temp, weather } = hourvalues;
 
   //Time
   const day = moment.unix(dt + timezone_offset);

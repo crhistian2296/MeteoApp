@@ -8,18 +8,22 @@ import Next48hForecast from '../components/pages/Next48hForecast';
 import WeekForecast from '../components/pages/WeekForecast';
 import Header from '../components/UI/Header';
 import Navbar from '../components/UI/Navbar';
-
+/**
+ * Router que indexa las diferentes paginas creadas para mostrar informacion
+ * @returns JSX Element
+ */
 const AppRouter = () => {
-  const { themeToggle, searchCityField } = useContext(DataContext);
+  // Manejo del tema y control de renderizacion para <citySelection />
+  const { themeToggle, searchToggle } = useContext(DataContext);
   const { theme } = themeToggle;
-  const { city } = searchCityField;
+  const { sendedSearch } = searchToggle;
 
   return (
     <div className={`mx-md-5 ${theme && 'bg-secondary bg-opacity-25'}`}>
       <Router>
         <Header />
         <Navbar />
-        {Object.values(city).length > 0 && <CitySelection />}
+        {sendedSearch && <CitySelection />}
         <div className='m-4'>
           <Routes>
             <Route path='today' element={<CurrentForecast />} />

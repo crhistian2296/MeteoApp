@@ -1,20 +1,23 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext } from 'react';
 import { useToggle } from '../../hooks/useToggle';
 
 export const DataContext = createContext();
-
+/**
+ * Contexto creado para manejar eventos sencillos como el color del tema
+ * @returns JSX Element
+ */
 const DataProvider = ({ children }) => {
-  const [city, setCity] = useState('');
-  const [theme, toggle] = useToggle();
+  const [theme, toggleTheme] = useToggle();
+  const [sendedSearch, toggleSearch] = useToggle();
 
   const initialValue = {
-    searchCityField: {
-      city,
-      setCity,
-    },
     themeToggle: {
       theme,
-      toggle,
+      toggleTheme,
+    },
+    searchToggle: {
+      sendedSearch,
+      toggleSearch,
     },
   };
   return <DataContext.Provider value={initialValue}>{children}</DataContext.Provider>;

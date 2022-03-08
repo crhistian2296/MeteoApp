@@ -1,9 +1,9 @@
 import axios from 'axios';
 
 /**
- *
+ * Llamada a openWeatherAPI que trae informacion de maximo 5 ciudades
  * @param {String} locationName
- * @returns {Array} cities
+ * @returns {Array} Array
  */
 export const getArrOfCoordinates = async (locationName) => {
   const res = await axios.get(
@@ -13,10 +13,10 @@ export const getArrOfCoordinates = async (locationName) => {
 };
 
 /**
- *
- * @param {String} lat
- * @param {String} lon
- * @returns {Object} weather object
+ *Llamada a openWeatherAPI que trae toda la informacion de previsiones
+ * @param {NUmber} lat
+ * @param {NUmber} lon
+ * @returns {Object}
  */
 export const getWeatherForecast = async (lat, lon) => {
   try {
@@ -31,9 +31,11 @@ export const getWeatherForecast = async (lat, lon) => {
 };
 
 /**
- *
+ * Llamada a openWeatherAPI que devuelve una imagen con las caracteristicas especificadas
  * @param {String} iconId
- * @returns image element
+ * @param {String} weatherMain
+ * @param {String} size
+ * @returns JSX Element
  */
 export const getIcon = (iconId, weatherMain, size = '180px') => {
   return (
