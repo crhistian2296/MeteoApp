@@ -25,13 +25,13 @@ export const HourWeatherCard = ({ hourvalues, timezone_offset }) => {
       <div
         className={`card ${
           theme && `bg-dark bg-opacity-25 text-light`
-        } border border-3 border-secondary rounded d-flex flex-row justify-content-center align-items-center`}
+        } border border-3 border-secondary rounded d-flex flex-column justify-content-center align-items-center`}
       >
+        <div className='fs-4'>{localTime}</div>
         <div>{getIcon(weather.at(0).icon, weather.at(0).main, '80px')}</div>
         <div className='d-flex flex-column'>
           <p className='m-0'>{capitalizeText(weather.at(0).description)}</p>
-          <p className='m-0'>{`${temp.toFixed(1)}°C`}</p>
-          <p className='m-0'>{localTime}</p>
+          <p className='mb-2'>{`${temp.toFixed(1)}°C`}</p>
         </div>
       </div>
     </div>
