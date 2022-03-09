@@ -13,7 +13,7 @@ const Header = () => {
 
   const handleToggle = () => toggleTheme();
   return (
-    <header className='d-flex px-5 justify-content-between align-items-center'>
+    <header className='d-flex px-5 pt-4 justify-content-between align-items-center'>
       <h1 className='display-1'>
         Meteo<span className={`${theme ? 'text-white' : 'text-muted'}`}>App</span>
       </h1>

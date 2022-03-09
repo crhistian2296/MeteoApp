@@ -19,7 +19,7 @@ const AppRouter = () => {
   const { sendedSearch } = searchToggle;
 
   return (
-    <div className={`mx-md-5 ${theme && 'bg-secondary bg-opacity-75'}`}>
+    <div className={`d-flex flex-column px-md-5 ${theme && 'bg-secondary bg-opacity-75'}`}>
       <HashRouter>
         <Header />
         <Navbar />
