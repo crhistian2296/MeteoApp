@@ -12,7 +12,7 @@ export const getArrOfCoordinates = async (locationName) => {
     );
     return res;
   } catch (err) {
-    console.log(err)
+    throw err;
   }
 };
 
@@ -30,7 +30,7 @@ export const getWeatherForecast = async (lat, lon) => {
 
     return res;
   } catch (err) {
-    console.log(err);
+    throw err;
   }
 };
 
