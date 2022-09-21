@@ -13,6 +13,7 @@ const CurrentForecast = () => {
   const reduxState = useSelector((state) => state);
   const { selectedCity } = reduxState.location;
   const { timezone_offset = 0, current } = reduxState.location.weatherForecast;
+  const timezoneOffsetCorrected = timezone_offset - 2 * 3600;
   const {
     dt,
     temp,
@@ -28,7 +29,7 @@ const CurrentForecast = () => {
   } = current;
 
   // Manejo de tiempo en segundos en formato unix con la libreria momentJS
-  const day = moment.unix(dt + timezone_offset);
+  const day = moment.unix(dt + timezoneOffsetCorrected);
   const localTime = day.format('dddd, kk:mm');
 
   return (

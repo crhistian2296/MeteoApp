@@ -21,7 +21,7 @@ const AppRouter = () => {
   return (
     <div
       className={`d-flex flex-column h-100 px-md-5 ${theme && 'bg-secondary bg-opacity-75'}`}
-      style={{ 'min-height': '100vh' }}
+      style={{ minHeight: '100vh' }}
     >
       <HashRouter>
         <Header />
