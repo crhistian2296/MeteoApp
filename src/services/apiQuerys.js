@@ -44,6 +44,7 @@ export const getWeatherForecast = async (lat, lon) => {
 export const getIcon = (iconId, weatherMain, size = '180px') => {
   return (
     <img
+      loading='lazy'
       src={`https://openweathermap.org/img/wn/${iconId}@4x.png`}
       height={size}
       width={size}
