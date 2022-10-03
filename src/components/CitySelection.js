@@ -22,9 +22,7 @@ export const CitySelection = () => {
     dispatch(weatherForecast(lat, lon));
     dispatch(send(cityName, 'selectedCity'));
     toggleSearch();
-    setTimeout(() => {
-      navigate('today');
-    }, 1000);
+    navigate('today');
   };
 
   // Permite el actualizado de la informacion persistente en localStorage
