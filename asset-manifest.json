@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/MeteoApp/static/js/main.7452980d.js",
+    "main.js": "/MeteoApp/static/js/main.a3929668.js",
     "index.html": "/MeteoApp/index.html",
-    "main.7452980d.js.map": "/MeteoApp/static/js/main.7452980d.js.map"
+    "main.a3929668.js.map": "/MeteoApp/static/js/main.a3929668.js.map"
   },
   "entrypoints": [
-    "static/js/main.7452980d.js"
+    "static/js/main.a3929668.js"
   ]
 }
