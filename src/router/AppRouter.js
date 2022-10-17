@@ -27,7 +27,7 @@ const AppRouter = () => {
         <Header />
         <Navbar />
         {sendedSearch && <CitySelection />}
-        <div className='m-4'>
+        <div className='m-5 mt-3'>
           <Routes>
             <Route path='today' element={<CurrentForecast />} />
             <Route path='next48h' element={<Next48hForecast />} />

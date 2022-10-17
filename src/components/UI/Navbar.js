@@ -5,10 +5,6 @@ import { getCoordinates } from '../../actions/actions';
 import useForm from '../../hooks/useForm';
 import { DataContext } from '../data/DataContext';
 
-// Estilo pila del componente
-const intViewportWidth = parseInt(window.innerWidth);
-const desktopScreen = intViewportWidth > 768;
-
 /**
  * Barra de navegacion que permite buscar localizaciones y una adecuada navegacion por la webapp
  * @returns JSX Element
@@ -44,26 +40,26 @@ const Navbar = () => {
     <nav
       className={`navbar navbar-expand-md ${
         theme ? `navbar-dark bg-dark bg-opacity-25` : `navbar-light bg-light`
-      } my-3 rounded-pill-sm ${desktopScreen && 'rounded-pill'} rounded-md mx-md-5 px-md-3`}
+      } my-3 mx-md-5 px-md-3`}
     >
       <div className='container-fluid'>
         <div className='navbar-collapse justify-content-between '>
           <div className='nav navbar-nav'>
             <ul className='nav-fill d-flex justify-content-center p-0 m-0'>
               <NavLink
-                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-2 px-md-3`}
+                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-3 px-md-3`}
                 to='/today'
               >
                 Now
               </NavLink>
               <NavLink
-                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-2 px-md-3`}
+                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-3 px-md-3`}
                 to='/next48h'
               >
                 48H
               </NavLink>
               <NavLink
-                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-2 px-md-3`}
+                className={`nav-item nav-link ${!weatherForecast && 'disabled'} fs-3 px-md-3`}
                 to='/week'
               >
                 Week

@@ -14,7 +14,7 @@ export const WeatherSheet = ({ children, localTime }) => {
     <>
       <div className={`card ${theme && `bg-dark bg-opacity-25 text-light`}`}>
         <div className='card-header'>
-          <div className='display-6'>{`${localTime}`}</div>
+          <div className='fs-3'>{`${localTime}`}</div>
         </div>
         {children}
       </div>

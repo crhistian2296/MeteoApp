@@ -22,7 +22,7 @@ export const DayWeatherCard = ({ dayValues, timezone_offset }) => {
   const dayOfWeek = day.format('dddd');
 
   return (
-    <div className='p-2'>
+    <div className='p-2 my-0'>
       <div
         className={`card border ${
           theme && `bg-dark bg-opacity-25 text-light`

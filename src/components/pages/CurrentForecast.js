@@ -12,15 +12,11 @@ import BlanckPage from './BlanckPage';
 const CurrentForecast = () => {
   // Obtencion de informacion concerniente a localizacion y meteorologia
   const reduxState = useSelector((state) => state);
-  const { selectedCity } = reduxState.location;
+  const { selectedCity, weatherForecast = {} } = reduxState.location;
 
   // Valida si la informacion existe para renderizar el componente
-  let timezone_offset = 0;
-  let current = {};
-  if (Object.prototype.hasOwnProperty.call(reduxState.location, 'weatherForecast')) {
-    timezone_offset = reduxState.location.weatherForecast.timezone_offset;
-    current = reduxState.location.weatherForecast.current;
-  } else return <BlanckPage />;
+  const { current, timezone_offset } = weatherForecast;
+  if (!current) return <BlanckPage />;
 
   const timezoneOffsetCorrected = timezone_offset - 2 * 3600;
   const {
@@ -43,7 +39,7 @@ const CurrentForecast = () => {
 
   return (
     <>
-      <div className='display-4 mb-3'>Current Weather</div>
+      <div className='display-5 mb-3'>Current Weather</div>
 
       <WeatherSheet localTime={`${localTime} ${selectedCity}`}>
         <div className='card-body'>

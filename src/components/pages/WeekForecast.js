@@ -21,9 +21,9 @@ const WeekForecast = () => {
 
   return (
     <>
-      <div className='display-4 mb-3'>Week Weather Forecast</div>
+      <div className='display-5 mb-3'>Week Weather Forecast</div>
       <WeatherSheet localTime={`${localTime} ${selectedCity}`}>
-        <div className='row row-cols-xxl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-3 p-4'>
+        <div className='row row-cols-xxl-4 row-cols-lg-3 row-cols-sm-2 row-cols-1 g-3 p-4 pb-2'>
           {daily.map((dayValues) => (
             <DayWeatherCard
               key={window.crypto.randomUUID()}

@@ -21,7 +21,7 @@ export const HourWeatherCard = ({ hourvalues, timezone_offset }) => {
   const localTime = day.format('kk:mm');
 
   return (
-    <div className='p-2'>
+    <div className='p-2 my-0'>
       <div
         className={`card ${
           theme && `bg-dark bg-opacity-25 text-light`
