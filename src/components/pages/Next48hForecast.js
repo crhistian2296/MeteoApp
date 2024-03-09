@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment-timezone';
 import { useSelector } from 'react-redux';
 import { HourWeatherCard } from '../HourWeatherCard';
 import { WeatherSheet } from '../WeatherSheet';
@@ -11,12 +11,11 @@ const Next48hForecast = () => {
   // Obtencion de informacion concerniente a localizacion y meteorologia
   const reduxState = useSelector((state) => state);
   const { selectedCity } = reduxState.location;
-  const { timezone_offset = 0, hourly, current } = reduxState.location.weatherForecast;
-  const timezoneOffsetCorrected = timezone_offset - 2 * 3600;
+  const { timezone = '', hourly, current } = reduxState.location.weatherForecast;
   const { dt } = current;
 
   // Manejo de tiempo en segundos en formato unix con la libreria momentJS
-  const day = moment.unix(dt + timezoneOffsetCorrected);
+  const day = moment.tz.setDefault(timezone).unix(dt);
   const localTime = day.format('dddd, kk:mm');
 
   return (
@@ -28,7 +27,7 @@ const Next48hForecast = () => {
             <HourWeatherCard
               key={window.crypto.randomUUID()}
               hourvalues={hourvalues}
-              timezone_offset={timezoneOffsetCorrected}
+              timezone={timezone}
             />
           ))}
         </div>

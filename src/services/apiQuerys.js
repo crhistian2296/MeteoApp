@@ -41,7 +41,7 @@ export const getWeatherForecast = async (lat, lon) => {
  * @param {String} size
  * @returns JSX Element
  */
-export const getIcon = (iconId, weatherMain, size = '180px') => {
+export const GetIcon = ({ iconId, weatherMain, size = '180px' }) => {
   return (
     <img
       loading='lazy'

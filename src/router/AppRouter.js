@@ -1,13 +1,13 @@
 import { useContext } from 'react';
 import { HashRouter, Navigate, Route, Routes } from 'react-router-dom';
 import { CitySelection } from '../components/CitySelection';
+import Header from '../components/UI/Header';
+import Navbar from '../components/UI/Navbar';
 import { DataContext } from '../components/data/DataContext';
 import BlanckPage from '../components/pages/BlanckPage';
 import CurrentForecast from '../components/pages/CurrentForecast';
 import Next48hForecast from '../components/pages/Next48hForecast';
 import WeekForecast from '../components/pages/WeekForecast';
-import Header from '../components/UI/Header';
-import Navbar from '../components/UI/Navbar';
 /**
  * Router que indexa las diferentes paginas creadas para mostrar informacion
  * @returns JSX Element
@@ -27,7 +27,7 @@ const AppRouter = () => {
         <Header />
         <Navbar />
         {sendedSearch && <CitySelection />}
-        <div className='m-5 mt-3'>
+        <div className='m-3 mx-sm-5 mt-3'>
           <Routes>
             <Route path='today' element={<CurrentForecast />} />
             <Route path='next48h' element={<Next48hForecast />} />

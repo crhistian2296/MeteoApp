@@ -1,7 +1,7 @@
-import moment from 'moment';
+import moment from 'moment-timezone';
 import { useContext } from 'react';
 import { capitalizeText } from '../helpers/capitalizeText';
-import { getIcon } from '../services/apiQuerys';
+import { GetIcon } from '../services/apiQuerys';
 import { DataContext } from './data/DataContext';
 
 /**
@@ -9,7 +9,7 @@ import { DataContext } from './data/DataContext';
  * @param {Object} dayValues
  * @returns JSX Element
  */
-export const DayWeatherCard = ({ dayValues, timezone_offset }) => {
+export const DayWeatherCard = ({ dayValues, timezone }) => {
   const { themeToggle } = useContext(DataContext);
   const { theme } = themeToggle;
 
@@ -18,7 +18,7 @@ export const DayWeatherCard = ({ dayValues, timezone_offset }) => {
   const { day: feelsLikeDay, night: feelsLikeNight } = feels_like;
 
   // Manejo de tiempo en segundos en formato unix con la libreria momentJS
-  const day = moment.unix(dt + timezone_offset);
+  const day = moment.tz.setDefault(timezone).unix(dt);
   const dayOfWeek = day.format('dddd');
 
   return (
@@ -26,11 +26,15 @@ export const DayWeatherCard = ({ dayValues, timezone_offset }) => {
       <div
         className={`card border ${
           theme && `bg-dark bg-opacity-25 text-light`
-        } border-3 border-secondary rounded d-flex flex-column justify-content-center align-items-center`}
+        } border-3 border-secondary rounded d-flex flex-column justify-content-center align-items-center py-2`}
       >
         <div className='fs-4'>{dayOfWeek}</div>
-        <div>{getIcon(weather.at(0).icon, weather.at(0).main, '120px')}</div>
-        <div className='d-flex flex-column'>
+        <GetIcon
+          iconId={weather.at(0).icon}
+          weatherMain={weather.at(0).main}
+          size='120px'
+        ></GetIcon>
+        <div className='d-flex flex-column gap-1'>
           <p className='m-0'>{capitalizeText(weather.at(0).description)}</p>
           <p className='m-0'>
             Daytime temperature: <strong>{tempDay.toFixed(1)}°C</strong>
