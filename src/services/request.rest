@@ -4,7 +4,7 @@
 GET  http://api.openweathermap.org/geo/1.0/direct
   ?q=rio
   &limit=5
-  &appid=054594a9de52b6e5eabd58266858ba9e
+  &appid=dc95562776b6b4eaf655bac72e985edb
 # Location query
 
 ###
@@ -14,5 +14,5 @@ GET https://api.openweathermap.org/data/3.0/onecall
   &lon=-43.2093727
   &units=metric
   &exclude=minutely
-  &appid=054594a9de52b6e5eabd58266858ba9e
+  &appid=dc95562776b6b4eaf655bac72e985edb
 # Rio de janeiro weather forecast
