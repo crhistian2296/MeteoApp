@@ -8,7 +8,7 @@ import axios from 'axios';
 export const getArrOfCoordinates = async (locationName) => {
   try {
     const res = await axios.get(
-      `https://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=5&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
+      `https://api.openweathermap.org/geo/1.0/direct?q=${locationName}&limit=5&appid=${process.env.REACT_APP_API_ID}`.trim()
     );
     return res;
   } catch (err) {
@@ -25,7 +25,7 @@ export const getArrOfCoordinates = async (locationName) => {
 export const getWeatherForecast = async (lat, lon) => {
   try {
     const res = await axios.get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=dc95562776b6b4eaf655bac72e985edb`.trim()
+      `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&units=metric&exclude=minutely&appid=${process.env.REACT_APP_API_ID}`.trim()
     );
 
     return res;
