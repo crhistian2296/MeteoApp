@@ -9,23 +9,23 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    
-    - name: Set up Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '22.04'
-    
-    - name: Build
-      run: |
-        npm install
-        npm run build
-      env:
-        REACT_APP_API_ID: ${{ secrets.REACT_APP_API_ID }}
-    
-    - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v4
-      with:
-        BRANCH: gh-pages
-        FOLDER: build
-        SSH-KEY: ${{ secrets.SSH_KEY }}
+      - uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20.x"
+
+      - name: Build
+        run: |
+          npm install
+          npm run build
+        env:
+          REACT_APP_API_ID: ${{ secrets.REACT_APP_API_ID }}
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v4
+        with:
+          BRANCH: gh-pages
+          FOLDER: build
+          SSH-KEY: ${{ secrets.SSH_KEY }}
